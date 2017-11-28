@@ -5,8 +5,8 @@ require_relative("../bus.rb")
 class TestBus < MiniTest::Test
 
  def setup()
-
-   @bus1 = Bus.new("Route 1", "Galashiels")
+   @passenger_list1 = ["Judy", "Sybill", "David", "Zsolt"]
+   @bus1 = Bus.new("Route 1", "Galashiels", @passenger_list1)
 
  end
 
@@ -21,4 +21,13 @@ class TestBus < MiniTest::Test
  def test_drive_method
    assert_equal("Crunch", @bus1.drive())
  end
+
+ def test_passengers
+   assert_equal(@passenger_list1, @bus1.passengers())
+ end
+
+ def test_count_passengers
+   assert_equal(4, @bus1.count_passengers())
+ end
+
 end
