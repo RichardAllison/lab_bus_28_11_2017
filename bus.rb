@@ -34,4 +34,10 @@ class Bus
     @passengers.clear
   end
 
+  def all_passengers_picked_up(queue)
+    for person in queue
+      @passengers << person
+    end
+    queue.clear
+  end
 end
