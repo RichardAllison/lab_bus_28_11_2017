@@ -10,4 +10,15 @@ class TestBus < MiniTest::Test
 
  end
 
+ def test_route_number
+   assert_equal("Route 1", @bus1.route())
+ end
+
+ def test_route_destination
+   assert_equal("Galashiels", @bus1.destination())
+ end
+
+ def test_drive_method
+   assert_equal("Crunch", @bus1.drive())
+ end
 end
