@@ -1,6 +1,8 @@
 require("minitest/autorun")
 require("minitest/rg")
 require_relative("../bus.rb")
+require_relative("../person.rb")
+require_relative("../bus_stop.rb")
 
 class TestBus < MiniTest::Test
 
@@ -30,4 +32,18 @@ class TestBus < MiniTest::Test
    assert_equal(4, @bus1.count_passengers())
  end
 
+ def test_passenger_pick_up
+   @bus1.passenger_pick_up("Dell")
+   assert_equal(["Judy", "Sybill", "David", "Zsolt", "Dell"], @bus1.passengers)
+ end
+
+ def test_passenger_drop_off
+   @bus1.passenger_drop_off("Sybill")
+   assert_equal(["Judy", "David", "Zsolt"], @bus1.passengers)
+ end
+
+ def test_bus_empty
+   @bus1.bus_empty()
+   assert_equal([], @bus1.passengers)
+ end
 end
